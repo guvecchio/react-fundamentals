@@ -14,3 +14,29 @@
 <!-- 🐨 Append the div to the root div using `append` -->
 <!--   💰 document.getElementById('root') -->
 <!--   📜 https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+        const rootDiv = document.createElement('div')
+        rootDiv.id = 'root'
+        //<div id="root"></div>
+        // não precisa de getElementById porque existe somente um body
+        document.body.append(rootDiv)
+
+        const novaDiv = document.createElement('div')
+        novaDiv.textContent = 'Hello, word do Gustavo!'
+        novaDiv.className = 'container'
+        //<div class="container">Hello, word!</div>
+        rootDiv.append(novaDiv)
+    </script>
+
+</body>
+</html>
