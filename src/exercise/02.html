@@ -4,11 +4,15 @@
 <body>
   <div id="root"></div>
 
+  <div id="root2"></div>
+
   <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
 
   <script type="module">
     const rootElement = document.getElementById('root')
+
+    const rootElement2 = document.getElementById('root2')
 
     //refazer o código abaixo em seguida via react
     /* You're going to re-implement this code using React!
@@ -30,14 +34,17 @@
     const elementType = 'div'
     const reactElement = React.createElement(elementType, elementProps)
     
-    /*
-    const reactElement = React.createElement('div', {
-      className: 'container',
-      children: 'Hello world do Gustavo!2'
+    // segunda forma de exibição
+    const reactElement2 = React.createElement('div', {
+      className: 'container2',
+      children: 'Hello world2 do Gustavo!'
     })
-    */
+    
 
     ReactDOM.render(reactElement, rootElement)
+    // não estava aparecendo, pois tinha que duplicar a div root, o rootElement, e o reactElement - ok
+    // - - - vamos aguardar esclarecimento de dúvidas
+    ReactDOM.render(reactElement2, rootElement2)
   
   </script>
 </body>
