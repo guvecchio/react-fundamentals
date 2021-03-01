@@ -3,14 +3,19 @@
 
 <body>
   <div id="root"></div>
+  <div id="root2"></div>
+  <div id="root3"></div>
+  <div id="root4"></div>
+  <!-- carrega o react -->
   <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
+  <!-- carrega o react DOM-->
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
 
-  <!-- 💣 remove this line
+  <!-- carrega o babel -->
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
-  💣 remove this line -->
+  
 
-  <script type="module">
+  <script type="text/babel"> // ALTERADO PARA O BABEL FAZER O TRABALHO DE COMPILAÇÃO DELE
     // 🐨 on the script tag above, change `type="module"`
     // to `type="text/babel"` so babel will compile this code for the browser to run.
 
@@ -20,6 +25,30 @@
       children: 'Hello World',
     })
 
+    // REIMPLEMENTANDO COM BABEL
+
+    const element2 = <div className="container2">Hello World 2!</div>
+
+
+    const nomeClasse = 'container3'
+    const conteudo = 'Hello World 3!'
+
+    // usa-se {} para fazer a interpolação usando JSX
+    const element3 = <div className={nomeClasse}>{conteudo}</div>
+
+    // CRIANDO VARIÁVEIS COM OS MESMOS NOMES DAS PROPS
+    const className = 'container4'
+    const children = 'Hello World 4 do Gustavo!'
+
+    // USO DE PROPRIEDADES ABREVIADAS
+    const Props = { className, children }
+    // Equivale a: { className: className, children: children }
+
+    // Usando espalhamento para passar todas as Props de uma vez
+    const element4 = <div {...Props}></div>
+    // Equivale a: <div className={props.className} children={Props.children}></div>
+
+
     // 💰 there are a few subtle differences between JSX and HTML. One such
     // difference is how you apply a class to an element in JSX is by using
     // `className` rather than `class`!
@@ -27,5 +56,14 @@
     // https://reactjs.org/docs/dom-elements.html#differences-in-attributes
 
     ReactDOM.render(element, document.getElementById('root'))
+
+    ReactDOM.render(element2, document.getElementById('root2'))
+
+    ReactDOM.render(element3, document.getElementById('root3'))
+
+    ReactDOM.render(element4, document.getElementById('root4'))
+
+    // revisar propriedades abreviadas e espalhamento
+
   </script>
 </body>
