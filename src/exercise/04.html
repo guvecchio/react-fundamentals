@@ -4,6 +4,7 @@
 <body>
   <div id="root"></div>
   <div id="root2"></div>
+  <div id="root3"></div>
 
   <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
@@ -40,9 +41,33 @@
           </div>
       ) // MESSAGE ENTRE CHAVES PARA INTERPOLAR
 
+      // RENDERIZAR => processo de transformar instruções escritas em JS em elementos HTML (de uma linguagem para outra)
+
+      // Função em JS que retorna um componente React personalisado
+      // Esse componente também possui props personalizadas (subject e greeting).
+      function Message({subject, greeting}) {
+        return (
+        <div className="message">
+          {greeting}, {subject}
+        </div>
+        )
+      }
+
+      // COPIAR OS COMENTÁRIOS DO CODIGO DO FAUSTO
+      const element3 = (
+          <div className="container">
+          <Message subject="Word" greeting="Hello 3"/ >
+          <Message subject="Goodbye" greeting="World 3"/>
+          <Message subject="Mamãe" greeting="Alô"/>
+          </div>
+      )
+
+
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
     ReactDOM.render(element, document.getElementById('root'))
 
     ReactDOM.render(element2, document.getElementById('root2'))
+
+    ReactDOM.render(element3, document.getElementById('root3'))
   </script>
 </body>

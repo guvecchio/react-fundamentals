@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de aula - COMPONENTES</title>
+</head>
+
+<style>
+    p.textcenter{
+        text-align: center;
+        background-color: aqua;
+    }
+    p.textdir{
+        text-align: right;
+        background-color: limegreen;
+    }
+</style>
+
+<body>
+
+    <div id="root"></div>
+  
+    <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+
+
+    <script type="text/babel">
+    
+        // arrow function de componente
+        const Contairner = props => <div className="container" {...props}></div>
+        /* como function tradicional de componente:
+        function Container(props){
+            return <div className="container" {...props}></div>
+        }
+        */
+       // arrow function de componente
+        const ParagCenter = props => <p className="textcenter" {...props}></p>
+        // arrow function de componente
+        const ParagDir = props => <p {...props}></p>
+
+        function Soma({n1, n2, ...props}) {
+            return <div {... props}>{n1 + n2}</div>
+        }
+
+        const contairner = (
+            <Contairner id="main"> 
+                <ParagCenter id="p1" lang="pt-br">Componente Personalizado, alinhado ao centro</ParagCenter>
+                <ParagDir className="textdir" id="p2">Este texto deve estar alinhado a direita</ParagDir>
+                <ParagDir id="p3">Este texto não deve estar alinhado</ParagDir>
+                <Soma id="soma1" n1={100} n2={50}/>
+                {/* se o valor das props não for etring, devemos passá-las interpoladas, ex: {50} no lugar de "50"
+                */}
+            </Contairner>
+        )
+
+        ReactDOM.render(contairner, document.getElementById('root'))
+
+    </script>
+
+</body>
+</html>
