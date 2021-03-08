@@ -53,12 +53,31 @@
         )
       }
 
+      // utilizando o React Fragment
+
+      /*
+      É um "pseudoelemento" que existe para cumprir com a exigência
+      de todo conteúdo renderizável em JSX estar dentro de alguma TAG. No entanto,
+      React.fragment não gera nenhu elemento HTML.
+      */
+      // NÃO ESTÁ FUNCIONANDO
+      function Message2({subject, greeting}) {
+        return (
+        <React.fragment>
+          {greeting}, {subject}
+        </React.fragment>
+        )
+      }
+
       // COPIAR OS COMENTÁRIOS DO CODIGO DO FAUSTO
       const element3 = (
           <div className="container">
           <Message subject="Word" greeting="Hello 3"/ >
           <Message subject="Goodbye" greeting="World 3"/>
           <Message subject="Mamãe" greeting="Alô"/>
+
+          <Message2 subject="Olá " greeting="Message React Fragment"/>
+          <Message2 subject="Bom dia " greeting="Teste Message2"/>
           </div>
       )
 
