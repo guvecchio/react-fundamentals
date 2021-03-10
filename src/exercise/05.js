@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 // Styling
 // http://localhost:3000/isolated/exercise/05.js
 
@@ -12,9 +13,17 @@ import '../box-styles.css'
 
 // 🐨 add a style prop to each of them as well so their background color
 // matches what the text says it should be as well as `fontStyle: 'italic'`
+
+
+
+/*COMENTANDO PARA SEGUIR SEM OS ERROS - PRECISO CORRIGIR INDICAVA AS VARIAVEIS CRIADAS, MAS NÃO USADAS
+smallBox, mediumBox, largeBox
+
 const smallBox = <div className="box box--small" style={{backgroundColor: 'lightblue', fontStyle: 'italic'}}>small lightblue box</div>
 const mediumBox = <div className="box box--medium" style={{backgroundColor: 'pink', fontStyle: 'italic'}}>medium pink box</div>
 const largeBox = <div className="box box--large" style={{backgroundColor: 'orange', fontStyle: 'italic'}}>large orange box</div>
+*/
+
 
 function Box({style, size = '', ...props}) {
   const className = "box--" + size
