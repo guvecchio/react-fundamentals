@@ -24,14 +24,28 @@ let usernameRef = React.useRef()
 */
 
 let [error, setError] = React.useState('')
+let [username, setUsername] = React.useState('')
 
+
+// função chama sempre que há alteração no imput
 function handleChange(event){
+  const imputVal = event.target.value // Captura o conteúdo do imput
+
+  /*
+  Converter o conteúdo do imput para minúsculas e armazenar na variável de estado
+  */
+  
+  setUsername(imputVal.toLowerCase())
+
+  /*
   // Validação: será que o usuário escreveu o username totalmente em minúsculas?
   const username = event.target.value
   if(username.toLowerCase() !== username){
     setError('O username deve ser informado totalmente em minúsculas!')
   }
   else setError('')
+*/
+
 }
 
 function handleSubmit(event){
@@ -68,7 +82,7 @@ function handleSubmit(event){
         a <label for="usarname">
       */}
         <label htmlFor="usarname">Username:</label>
-        <input ref={usernameRef} id="username" type="text" onChange={handleChange} />
+        <input ref={usernameRef} id="username" type="text" onChange={handleChange} value={username} />
         <div style={ {color: 'red'} } role="alert">{error}</div>
       </div>
       <button type="submit">Submit</button>
