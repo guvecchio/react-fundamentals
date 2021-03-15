@@ -49,7 +49,7 @@ function handleChange(event){
 }
 
 function handleSubmit(event){
-  event.preventDefault()  // Evitar que a pÃ¡gina recarregue
+  event.preventDefault()  // Evitar que a página recarregue
   // Capturar o valor do input (caixa de texto)
   
   //const username = document.getElementById('username').value
