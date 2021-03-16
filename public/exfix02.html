@@ -24,32 +24,23 @@
 
         function MeuForm({onSubmitMeuForm}){
 
-            let MeuFormRef = React.useRef()
-
+            // Retorna um valor e uma função para atualizar o valor.
             let[MeuForm, setMeuForm] = React.useState('')
 
 
-            // função chamada sempre que há alteração no input
+            // função chamada sempre que há alteração no input => onChange={inputAlterado}
             function inputAlterado(event){
-                const insereValor = event.target.value
+                const insereValor = event.target.value // recebe o valor digitado => value={MeuForm}
 
+                // atualiza o valor em minúsculas
                 setMeuForm(insereValor.toLowerCase())
             }
 
-
-            function inputEnviado(event){
-                event.preventDefaut()  // Evitar que a página recarregue
-
-                // Capturar o valor do Input (caixa de texto)
-                const MeuForm = MeuFormRef.current.value
-                onSubmitMeuForm(MeuForm)
-            }
-
             return(
-                <form onSubmit={inputEnviado}>
+                <form>
                     <div>
                         <label htmlFor="MeuForm">Nome: </label>
-                        <input ref={MeuFormRef} id="nome" type="text" onChange={inputAlterado} value={MeuForm} />
+                        <input id="nome" type="text" onChange={inputAlterado} value={MeuForm} />
                     </div>
                     <div>
                         <label htmlFor="sobrenome">Sobrenome:   </label>
