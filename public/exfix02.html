@@ -22,38 +22,52 @@
             nos campos de nome ou sobrenome.
         */
 
-        function MeuForm({onSubmitMeuForm}){
+        function MeuForm(props){
+
+            // 1) criar dois useRef e associá-los aos inputs
+            const elNome = React.useRef()
+            const elSobrenome = React.useRef()
+
+            // 2) Criar um useState para armazenar o nome completo
 
             // Retorna um valor e uma função para atualizar o valor.
-            let[MeuForm, setMeuForm] = React.useState('')
+            const[nomeCompleto, setNomeCompleto] = React.useState('')
 
+            /*
+            3) Criar uma função para manipular o evento onChance dos inputs. Nessa
+            função, deve-se ler os valor de ambos os inputs (com as refs), formar
+            o nome completo em maiúsculas e guardá-lo na variável de estado.
+            */
 
-            // função chamada sempre que há alteração no input => onChange={inputAlterado}
-            function inputAlterado(event){
-                const insereValor = event.target.value // recebe o valor digitado => value={MeuForm}
+            function handleChange(event){
+                const parte1 = elNome.current.value         // Captura o valor do input nome
+                const parte2 = elSobrenome.current.value    // Captura o valor do input sobrenome
 
-                // atualiza o valor em minúsculas
-                setMeuForm(insereValor.toLowerCase())
+                // Armazenar o nome completo, já em maiúsculas, na variável de estado
+                setNomeCompleto(parte1.toUpperCase() + ' ' + parte2.toUpperCase())
             }
 
-            return(
+
+             return(
                 <form>
                     <div>
-                        <label htmlFor="MeuForm">Nome: </label>
-                        <input id="nome" type="text" onChange={inputAlterado} value={MeuForm} />
+                        <label htmlFor="nome">Nome: </label>
+                        <input ref={elNome} id="nome" onChange={handleChange} />
                     </div>
                     <div>
                         <label htmlFor="sobrenome">Sobrenome:   </label>
-                        <input id="sobrenome" />
+                        <input ref={elSobrenome} id="sobrenome" onChange={handleChange} />
                     </div>
-                    <div id="nomeCompleto"></div>
+                    {/*
+                    4) Usar a variável de estado para atualizar o conteúdo da div do nome completo
+                    */}
+                    <div id="nomeCompleto">{NomeCompleto}</div>
                 </form>
             )
         }
 
-        ReactDOM.render(<MeuForm/ >, document.getElementById('root'))
-
-
+        ReactDOM.render(<MeuForm />, document.getElementById('root'))
+        
     </script>
     
 </body>
